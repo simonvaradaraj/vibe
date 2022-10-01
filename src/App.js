@@ -1,23 +1,54 @@
 import './App.css';
 import {InputHome} from './comp/inputS';
+import {OptionPanel} from './comp/opPanel';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
-function Launch() {
+
+
+export function App() {
   return (
-    <div className="App">
-      <div className="logo">
-        <h1>VIBE.</h1>
-        <h3>Trip Planning Made Easy</h3>
-      </div>
+    <Router>
+      <Routes>
+          <Route path="/" element={<Launch />}/>
+          <Route path="/options" element={<Options />} /> 
+          {/* <Route path="/dashboard">
+            <Dashboard />
+          </Route> */}
+      </Routes>
+  </Router>
+  ); 
+}
 
-      <div className="search-home">
-        <p>Give me a one-sentence description of your ideal trip.</p>
-        <div className="bar">
-          <InputHome />
+export function Launch() {
+  return (
+      <div className="Launch">
+        <div className="logo">
+          <h1>VIBE.</h1>
+          <h3>Trip Planning Made Easy</h3>
+        </div>
+
+        <div className="search-home">
+          <p>Give me a one-sentence description of your ideal trip.</p>
+          <div className="bar">
+            <InputHome />
+          </div>
         </div>
       </div>
-      
-    </div>
   );
 }
 
-export default Launch;
+export function Options() {
+  return (
+      <div className="options">
+        <p>Please answer the questions below</p>
+        <div className="optionpanel">
+          <OptionPanel />
+        </div>
+      </div>
+  );
+}
+

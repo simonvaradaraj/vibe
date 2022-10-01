@@ -5,12 +5,12 @@
   padding: 0;
 }
 
-.App * {
+.Launch * {
   text-align: center;
   font-family: 'Inter', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.App {
+.Launch, .options {
   height: 100vh;
   width: 100vw;
   background: linear-gradient(135deg, #BEB670, #E23E3E);
@@ -80,3 +80,16 @@
 } 
 
 /* -----------------------OPTIONs PAGE------------------------------ */
+
+
+.optionpanel {
+  background-color: #D9D8D8;
+  width: 50vw;
+  height: 60vh;
+}
+
+.options p {
+  font-size: 20px;
+  margin-top: 15vh;
+  margin-bottom: 15px;
+}
