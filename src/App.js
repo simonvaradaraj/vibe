@@ -32,7 +32,7 @@ export function Launch() {
         </div>
 
         <div className="search-home">
-          <p>Give me a one-sentence description of your ideal trip.</p>
+          <p>What's the trip vibe you're going for?</p>
           <div className="bar">
             <InputHome />
           </div>

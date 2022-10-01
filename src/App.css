@@ -3,11 +3,12 @@
 * {
   margin: 0;
   padding: 0;
+
+  font-family: 'Inter', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .Launch * {
   text-align: center;
-  font-family: 'Inter', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .Launch, .options {
@@ -48,20 +49,22 @@
 }
 
 
-
 .bar input[type=text]{
   width: 60vw;
-  height: 5vh;
+  height: 7vh;
   border-radius: 10px;
   border: none;
   filter: drop-shadow(0px 5px 2px #4b494949);
   text-align: left;
+
+  font-size: 1.1rem;
+  padding-left: 20px;
 }
 
 .bar input[type=submit] {
   margin-left: 10px;
-  height: 5vh;
-  width: 6vw;
+  height: 7vh;
+  width: 7vw;
   border-radius: 10px;
   border:none;
   font-size: large;
@@ -85,11 +88,111 @@
 .optionpanel {
   background-color: #D9D8D8;
   width: 50vw;
-  height: 60vh;
+  height: 55vh;
+  border-radius: 25px;
+  padding: 30px;
+
+  filter: drop-shadow(0px 5px 2px #4b494949);
 }
 
 .options p {
-  font-size: 20px;
+  font-size: 25px;
   margin-top: 15vh;
   margin-bottom: 15px;
+}
+
+.optionpanel .panel-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.optionpanel input[type=text] {
+  background-color: #F1F1F1;
+  border: none;
+  border-radius: 10px;
+  height: 7vh;
+
+  padding-left: 15px;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.desloc span {
+  font-size: 80%;
+}
+
+.optionpanel input[type=radio] {
+
+  display: none;
+}
+
+.optionpanel input[type=radio]:checked {
+
+  
+}
+
+.optionpanel label {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.radbutton {
+  width: 22%;
+  text-align: center;
+  font-size: 90%;
+  background-color: #F1F1F1;
+  padding: 15px 20px 15px 20px;
+  
+  border-radius: 15px;
+
+  display: inline-block;
+  margin-right: 1vw;
+  
+}
+
+
+.optionpanel .buttons {
+  margin-bottom: 2vh;
+}
+
+.optionpanel input[type=submit] {
+  height: 5vh;
+  width: 100%;
+  border-radius: 10px;
+  border:none;
+  font-size: large;
+
+  background-color: #81bfecd0;
+}
+
+.optionpanel input:hover, .radbutton {
+  cursor: pointer;
+}
+
+.optionpanel input[type=submit]:hover {
+  transition: .3s ease-in-out;
+  background-color: #5aa1d4d0;
+} 
+
+.optionpanel input[type="radio"]:checked+label {
+  background-color: #BBBBBB;
+}
+
+.optionpanel .slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 3vh;
+  background: #BBBBBB;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+
+  margin-bottom: 30px;
+
+  border-radius: 10px;
+}
+
+.slider:hover {
+  opacity: 1;
 }
