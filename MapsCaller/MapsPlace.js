@@ -6,8 +6,13 @@
  */
 const fetch = require('node-fetch');
 
-async function getData(url) {
-    const response = await fetch(url);
+async function getData(url, data=null) {
+    if(data == null){
+        const response = await fetch(url);
+    }
+    else{
+        const response = await fetch(url, data);
+    }
 
     return response.json();
 }
@@ -49,18 +54,33 @@ exports.MapController = async (req, res) => {
 
         //get reviews
         let reviewsRes = await getData(reviewsURL + ID);
+        const revJson = reviewsRes.json();
         const name = place.name;
-        sendNLP.reviews[name] = reviewsRes.result.reviews;
-
+        
+        //add reviews to an array
+        let arrRev = [];
+        revJson.results.reviews.array.forEach(rev => {
+            arrRev.push(rev.text);
+        });
+        //put array in NLP json under place name
+        sendNLP.reviews[name] = arrRev;
     }
 
     //send request to NLP with sendOBJ
-    let NLPRes = await getData('34.135.149.25:5000/getSimilarity');
+    let NLPRes = await getData(`https://vibe-server2-fvbdgenooq-vp.a.run.app/getSimilarity?`, sendNLP);
+    
     const NLPJSON = NLPRes.json();
+
 
 
     //get response and create obj with NLP score and other info if its >= than minScore
     //then return that object in res.json()
+    let returnJson = {};
+    for (const loc in NLPJSON){
+        if(NLPJSON[loc][0][1] >= req.minScore){
+            returnJson[loc] = NLPJSON[loc][0][1];
+        }
+    }
 
-    res.send(NLPJSON);
+    res.send(returnJson);
 };
