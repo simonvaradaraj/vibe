@@ -7,14 +7,17 @@
 const fetch = require('node-fetch');
 
 async function getData(url, data=null) {
+
     if(data == null){
         const response = await fetch(url);
+        return response.json();
     }
     else{
         const response = await fetch(url, data);
+        return response.json();
     }
 
-    return response.json();
+    
 }
 
 exports.MapController = async (req, res) => {
