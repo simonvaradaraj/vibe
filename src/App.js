@@ -1,6 +1,12 @@
 import './App.css';
 import {InputHome} from './comp/inputS';
+import {InputPortal} from './comp/inputP';
 import {OptionPanel} from './comp/opPanel';
+
+import { Itineraries, Attractions } from './comp/iten';
+
+import {useState} from 'react';
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -15,9 +21,7 @@ export function App() {
       <Routes>
           <Route path="/" element={<Launch />}/>
           <Route path="/options" element={<Options />} /> 
-          {/* <Route path="/dashboard">
-            <Dashboard />
-          </Route> */}
+          <Route path="/portal" element={<Portal />} />
       </Routes>
   </Router>
   ); 
@@ -50,5 +54,52 @@ export function Options() {
         </div>
       </div>
   );
+}
+
+export function Portal() {
+
+  const [act, setact] = useState('p-inactive');
+
+  let isActive = (e) => {
+    if(e === 'p-inactive') {
+      e = 'p-active';
+    }
+    else {
+      e = 'p-inactive';
+    }
+  }
+
+  return (
+      <>
+        <div className="layer" id=''>
+        </div>
+
+        <div className="portal">
+          <header>
+            <h1>VIBE.</h1><span> portal</span>
+            <div className="bar-port">
+              <InputPortal/>
+            </div>
+            <button className="settings">⚙️</button>
+          </header>
+          
+          <div className="recs">
+            <div className="iten">
+              <Itineraries />
+            </div>
+            <div className="atr">
+              <Attractions />
+            </div>
+          </div>
+
+          <div className='optionpanel'>
+            <OptionPanel />
+          </div>
+        
+        </div>
+      </>
+    
+
+  )
 }
 
